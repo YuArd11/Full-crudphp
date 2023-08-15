@@ -1,0 +1,33 @@
+#menyembunyikan list file/direktori
+Options -Indexes
+
+
+#menyembunyikan signeture tanda server
+ServerSignature off
+
+#memblokir ip address
+#Order Allow,Deny
+#    Allow from 127.0.0.1
+#Allow from all
+
+#menghilangkan ekstensi file di url
+<ifModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.*)$ $1.php
+</ifModule>
+
+#redirec/mengalihkan ke url lain
+#redirect /CRUD-Belajar/mahasiswa.php https://google.com
+
+<ifModule mod_gzip.c>
+mod_gzip_on YES
+mod_gzip_dechunk YES
+mod_gzip_item_include file \.(html|txt|css|js|php|pl)$
+mod_gzip_item_include mine ^application/x-javascript.*
+mod_gzip_item_include mine ^text/.*
+mod_gzip_item_exlude rspheader ^Content-Encoding:.*gzip.*
+mod_gzip_item_exlude mine ^image/.*
+mod_gzip_item_include handler ^cgi-script$
+</ifModule>
