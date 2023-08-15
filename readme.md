@@ -1,8 +1,8 @@
 #source code playlist full CRUD php mysql
 Teknologi:
--PHP 8
--BOOSTRAP 4
--MYSQL/MariaDB
+* PHP 8.
+* BOOSTRAP 4.
+* MYSQL/MariaDB.
 
 akun login
 1. Akun admin
